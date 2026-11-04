@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Social App | Feed</title>
+
+    <!-- Tailwind CSS installed with npm -->
+    <link rel="stylesheet" href="../src/output.css" />
+  </head>
+
+  <body
+    class="app-body bg-fixed"
+    style="background-image: url(&quot;../images/background.jpg&quot;)"
+  >
+    <!-- Dark overlay -->
+    <div class="min-h-screen bg-slate-950/50">
+      <!-- Sticky navigation -->
+      <header class="site-header">
+        <nav class="page-container main-nav" aria-label="Main navigation">
+          <a
+            href="../index.html"
+            class="text-lg font-bold text-violet-200 sm:text-2xl"
+          >
+            Social App
+          </a>
+
+          <div class="flex items-center gap-3 sm:gap-6">
+            <a href="./index.html" aria-current="page" class="nav-link">
+              Feed
+            </a>
+
+            <a href="../profile/" class="nav-link"> Profile </a>
+
+            <a href="../index.html" class="logout-button"> Log Out </a>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Main content -->
+      <main class="page-container py-8 sm:py-12">
+        <!-- Page heading -->
+        <div class="mb-8">
+          <h1 class="page-title">Your Feed</h1>
+
+          <p class="body-text">Discover what's happening in your community.</p>
+        </div>
+
+        <!-- Search posts -->
+        <section
+          aria-label="Search posts"
+          class="glass-card bg-slate-900/40 p-5 sm:p-6"
+        >
+          <label for="search" class="form-label"> Search posts </label>
+
+          <input
+            type="search"
+            id="search"
+            name="search"
+            placeholder="Search for posts..."
+            class="form-input"
+          />
+        </section>
+
+        <!-- Create Post button -->
+        <div class="mt-6 flex justify-start">
+          <button
+            type="button"
+            id="open-post-modal"
+            class="cta-button w-auto px-6 py-2"
+          >
+            + Create Post
+          </button>
+        </div>
+
+        <!-- Recent posts -->
+        <section class="mt-10" aria-labelledby="posts-heading">
+          <!-- Heading and sorting -->
+          <div class="posts-toolbar">
+            <h2 id="posts-heading" class="section-title">Recent Posts</h2>
+
+            <div class="flex items-center gap-3">
+              <label
+                for="sort"
+                class="shrink-0 text-sm font-medium text-slate-200"
+              >
+                Sort posts:
+              </label>
+
+              <div class="relative w-full sm:w-44">
+                <select id="sort" name="sort" class="form-select">
+                  <option value="newest">Newest first</option>
+                  <option value="oldest">Oldest first</option>
+                  <option value="popular">Most liked</option>
+                </select>
+
+                <!-- Custom dropdown arrow -->
+                <svg
+                  class="dropdown-arrow"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  aria-hidden="true"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="m6 9 6 6 6-6"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- Posts list -->
+          <div class="space-y-6">
+            <!-- Post 1: Emma -->
+            <article class="glass-card bg-slate-900/60">
+              <div class="post-author">
+                <img
+                  src="https://i.pravatar.cc/100?img=47"
+                  alt="Profile picture of Emma"
+                  class="avatar-image"
+                />
+
+                <div>
+                  <h3 class="font-semibold">Emma Wilson</h3>
+                  <p class="post-metadata">@emmawilson · 2 hours ago</p>
+                </div>
+              </div>
+
+              <div class="px-5 pb-5">
+                <p class="body-text">
+                  Sometimes all you need is a beautiful sunset and a little time
+                  to yourself. 🌅
+                </p>
+              </div>
+
+              <img
+                src="https://images.unsplash.com/photo-1472120435266-53107fd0c44a?auto=format&fit=crop&w=1000&q=80"
+                alt="Orange sunset over a landscape"
+                class="post-image"
+              />
+
+              <div class="post-actions">
+                <button
+                  type="button"
+                  class="post-action"
+                  aria-label="Like Emma's post"
+                >
+                  <span aria-hidden="true">♡</span>
+                  <span>128 Likes</span>
+                </button>
+
+                <button
+                  type="button"
+                  class="post-action"
+                  aria-label="Comments on Emma's post"
+                >
+                  <span aria-hidden="true">💬</span>
+                  <span>24 Comments</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Post 2: Daniel -->
+            <article class="glass-card bg-slate-900/60">
+              <div class="post-author">
+                <img
+                  src="https://i.pravatar.cc/100?img=12"
+                  alt="Profile picture of Daniel"
+                  class="avatar-image"
+                />
+
+                <div>
+                  <h3 class="font-semibold">Daniel Carter</h3>
+                  <p class="post-metadata">@danielcarter · 5 hours ago</p>
+                </div>
+              </div>
+
+              <div class="px-5 pb-5">
+                <p class="body-text">
+                  Weekend adventures are the best! Found this amazing place
+                  while hiking. 🏔️
+                </p>
+              </div>
+
+              <img
+                src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80"
+                alt="Mountain landscape"
+                class="post-image"
+                loading="lazy"
+              />
+
+              <div class="post-actions">
+                <button
+                  type="button"
+                  class="post-action"
+                  aria-label="Like Daniel's post"
+                >
+                  <span aria-hidden="true">♡</span>
+                  <span>86 Likes</span>
+                </button>
+
+                <button
+                  type="button"
+                  class="post-action"
+                  aria-label="Comments on Daniel's post"
+                >
+                  <span aria-hidden="true">💬</span>
+                  <span>12 Comments</span>
+                </button>
+              </div>
+            </article>
+
+            <!-- Post 3: Sophia -->
+            <article class="glass-card bg-slate-900/60">
+              <div class="post-author">
+                <img
+                  src="https://i.pravatar.cc/100?img=44"
+                  alt="Profile picture of Sophia"
+                  class="avatar-image"
+                />
+
+                <div>
+                  <h3 class="font-semibold">Sophia Lee</h3>
+                  <p class="post-metadata">@sophialee · Yesterday</p>
+                </div>
+              </div>
+
+              <div class="px-5 pb-5">
+                <p class="body-text">
+                  A little coffee break and some creative inspiration. ☕✨
+                </p>
+              </div>
+
+              <img
+                src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80"
+                alt="Coffee on a table"
+                class="post-image"
+                loading="lazy"
+              />
+
+              <div class="post-actions">
+                <button
+                  type="button"
+                  class="post-action"
+                  aria-label="Like Sophia's post"
+                >
+                  <span aria-hidden="true">♡</span>
+                  <span>215 Likes</span>
+                </button>
+
+                <button
+                  type="button"
+                  class="post-action"
+                  aria-label="Comments on Sophia's post"
+                >
+                  <span aria-hidden="true">💬</span>
+                  <span>31 Comments</span>
+                </button>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- Create Post modal -->
+    <dialog
+      id="post-modal"
+      aria-labelledby="post-modal-title"
+      class="post-modal"
+    >
+      <div class="p-5 sm:p-8">
+        <!-- Modal heading -->
+        <div class="modal-header">
+          <div>
+            <h2 id="post-modal-title" class="section-title">Create Post</h2>
+
+            <p class="body-text">Share something with your community.</p>
+          </div>
+
+          <button
+            type="button"
+            id="close-post-modal"
+            class="close-button"
+            aria-label="Close Create Post"
+          >
+            &times;
+          </button>
+        </div>
+
+        <!-- Create Post form -->
+        <form id="create-post-form" class="space-y-5">
+          <!-- Post title -->
+          <div>
+            <label for="post-title" class="form-label"> Post title </label>
+
+            <input
+              type="text"
+              id="post-title"
+              name="title"
+              required
+              maxlength="100"
+              placeholder="Give your post a title..."
+              class="form-input"
+            />
+          </div>
+
+          <!-- Post content -->
+          <div>
+            <label for="post-content" class="form-label">
+              What's on your mind?
+            </label>
+
+            <textarea
+              id="post-content"
+              name="content"
+              rows="5"
+              required
+              maxlength="1000"
+              placeholder="Write your post here..."
+              class="form-textarea"
+            ></textarea>
+          </div>
+
+          <!-- Image URL -->
+          <div>
+            <label for="post-image" class="form-label">
+              Image URL
+              <span class="font-normal text-slate-300"> (optional) </span>
+            </label>
+
+            <input
+              type="url"
+              id="post-image"
+              name="image"
+              placeholder="https://example.com/image.jpg"
+              class="form-input"
+            />
+          </div>
+
+          <!-- Demo message -->
+          <p id="post-demo-message" class="body-text hidden" role="status">
+            Demo only: publishing is not connected to a server.
+          </p>
+
+          <!-- Publish button -->
+          <button type="submit" class="cta-button">Publish Post</button>
+        </form>
+      </div>
+    </dialog>
+
+    <!-- JavaScript for the modal -->
+    <script>
+      const postModal = document.getElementById("post-modal");
+
+      const openPostModal = document.getElementById("open-post-modal");
+
+      const closePostModal = document.getElementById("close-post-modal");
+
+      const createPostForm = document.getElementById("create-post-form");
+
+      const postDemoMessage = document.getElementById("post-demo-message");
+
+      // Open Create Post modal
+      openPostModal.addEventListener("click", () => {
+        postDemoMessage.classList.add("hidden");
+        postModal.showModal();
+      });
+
+      // Close modal
+      closePostModal.addEventListener("click", () => {
+        postModal.close();
+      });
+
+      // Demonstration only: no real post is created
+      createPostForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+        postDemoMessage.classList.remove("hidden");
+      });
+    </script>
+  </body>
+</html>
