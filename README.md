@@ -1,2 +1,3 @@
 # new-social-media-app
-This is a social media app styles with Tailwind. 
+
+This is a social media app styled with Tailwind.

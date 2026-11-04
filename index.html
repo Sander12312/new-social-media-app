@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Social App | Login & Register</title>
+
+    <!-- Tailwind CSS compiled locally with npm -->
+    <link rel="stylesheet" href="./src/output.css" />
+  </head>
+
+  <body
+    class="app-body"
+    style="background-image: url(&quot;./images/background.jpg&quot;)"
+  >
+    <!-- Background overlay -->
+    <div class="auth-layout">
+      <!-- Glassmorphism card -->
+      <main class="auth-card">
+        <!-- App branding -->
+        <header class="mb-7 text-center">
+          <div class="brand-icon" aria-hidden="true">
+            <svg
+              class="h-8 w-8 text-violet-200"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              stroke-width="1.8"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16 19h6v-2a4 4 0 0 0-4-4h-1M9 19H2v-2a4 4 0 0 1 4-4h1m5 6v-2a4 4 0 0 0-8 0v2h8Zm-4-9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"
+              />
+            </svg>
+          </div>
+
+          <h1 class="page-title">Social App</h1>
+
+          <p class="body-text">Connect with your friends.</p>
+        </header>
+
+        <!-- Login / Register buttons -->
+        <div
+          class="mb-7 grid grid-cols-2 rounded-xl border border-white/20 bg-white/10 p-1"
+          role="group"
+          aria-label="Choose authentication form"
+        >
+          <button
+            type="button"
+            id="login-tab"
+            aria-controls="login-section"
+            aria-pressed="true"
+            class="auth-tab"
+          >
+            Log In
+          </button>
+
+          <button
+            type="button"
+            id="register-tab"
+            aria-controls="register-section"
+            aria-pressed="false"
+            class="auth-tab"
+          >
+            Register
+          </button>
+        </div>
+
+        <!-- LOGIN -->
+        <section id="login-section">
+          <h2 class="section-title mb-5">Welcome back</h2>
+
+          <form action="/profile" method="post" class="space-y-5">
+            <!-- Email -->
+            <div>
+              <label for="login-email" class="form-label">
+                Email address
+              </label>
+
+              <input
+                type="email"
+                id="login-email"
+                name="email"
+                autocomplete="email"
+                required
+                placeholder="you@example.com"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Password -->
+            <div>
+              <label for="login-password" class="form-label"> Password </label>
+
+              <input
+                type="password"
+                id="login-password"
+                name="password"
+                minlength="8"
+                autocomplete="current-password"
+                required
+                placeholder="At least 8 characters"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Login button -->
+            <button type="submit" class="cta-button">Log In</button>
+          </form>
+
+          <p class="body-text">
+            Don't have an account?
+
+            <button type="button" id="show-register" class="auth-link">
+              Sign up
+            </button>
+          </p>
+        </section>
+
+        <!-- REGISTER -->
+        <section id="register-section" hidden>
+          <h2 class="section-title">Create an account</h2>
+
+          <form action="/profile" method="post" class="space-y-4">
+            <!-- Username -->
+            <div>
+              <label for="register-username" class="form-label">
+                Username
+              </label>
+
+              <input
+                type="text"
+                id="register-username"
+                name="username"
+                autocomplete="username"
+                minlength="3"
+                required
+                placeholder="Choose a username"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Email -->
+            <div>
+              <label for="register-email" class="form-label">
+                Email address
+              </label>
+
+              <input
+                type="email"
+                id="register-email"
+                name="email"
+                autocomplete="email"
+                required
+                placeholder="you@example.com"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Password -->
+            <div>
+              <label for="register-password" class="form-label">
+                Password
+              </label>
+
+              <input
+                type="password"
+                id="register-password"
+                name="password"
+                minlength="8"
+                autocomplete="new-password"
+                required
+                placeholder="At least 8 characters"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Confirm password -->
+            <div>
+              <label for="confirm-password" class="form-label">
+                Confirm password
+              </label>
+
+              <input
+                type="password"
+                id="confirm-password"
+                name="confirmPassword"
+                minlength="8"
+                autocomplete="new-password"
+                required
+                placeholder="Repeat your password"
+                class="form-input"
+              />
+            </div>
+
+            <!-- Register button -->
+            <button type="submit" class="cta-button">Create Account</button>
+          </form>
+
+          <p class="mt-6 text-center text-sm text-slate-100">
+            Already have an account?
+
+            <button type="button" id="show-login" class="auth-link">
+              Log in
+            </button>
+          </p>
+        </section>
+      </main>
+    </div>
+
+    <!-- JavaScript for UI interactions only -->
+    <script>
+      const loginSection = document.getElementById("login-section");
+
+      const registerSection = document.getElementById("register-section");
+
+      const loginTab = document.getElementById("login-tab");
+
+      const registerTab = document.getElementById("register-tab");
+
+      // Switch between login and registration
+      function showForm(form) {
+        const isLogin = form === "login";
+
+        loginSection.hidden = !isLogin;
+        registerSection.hidden = isLogin;
+
+        // Update accessibility attributes
+        loginTab.setAttribute("aria-pressed", String(isLogin));
+
+        registerTab.setAttribute("aria-pressed", String(!isLogin));
+      }
+
+      loginTab.addEventListener("click", () => {
+        showForm("login");
+      });
+
+      registerTab.addEventListener("click", () => {
+        showForm("register");
+      });
+
+      document.getElementById("show-register").addEventListener("click", () => {
+        showForm("register");
+      });
+
+      document.getElementById("show-login").addEventListener("click", () => {
+        showForm("login");
+      });
+
+      // Demo only: validate forms without sending passwords
+      document.querySelectorAll("form").forEach((form) => {
+        form.addEventListener("submit", (event) => {
+          event.preventDefault();
+
+          // Navigate to the static profile page
+          window.location.href = "./profile/";
+        });
+      });
+    </script>
+  </body>
+</html>

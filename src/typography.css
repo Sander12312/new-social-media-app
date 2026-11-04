@@ -1,0 +1,29 @@
+@layer components {
+  .post-metadata {
+    @apply text-xs text-slate-300;
+  }
+
+  .page-title {
+    @apply text-3xl font-bold sm:text-4xl;
+  }
+
+  .section-title {
+    @apply text-xl font-semibold;
+  }
+
+  .body-text {
+    @apply leading-relaxed text-slate-100;
+  }
+
+  .post-text {
+    @apply leading-relaxed text-slate-100;
+  }
+
+  .stat-number {
+    @apply text-xl font-bold sm:text-2xl;
+  }
+
+  .stat-label {
+    @apply mt-1 text-xs text-slate-300 sm:text-sm;
+  }
+}

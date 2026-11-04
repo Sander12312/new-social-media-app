@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Social App | Profile</title>
+
+    <!-- Tailwind CSS compiled locally using npm -->
+    <link rel="stylesheet" href="../src/output.css" />
+  </head>
+
+  <body
+    class="app-body bg-fixed"
+    style="background-image: url(&quot;../images/background.jpg&quot;)"
+  >
+    <!-- Dark overlay -->
+    <div class="min-h-screen bg-slate-950/50">
+      <!-- Sticky navigation -->
+      <header class="site-header">
+        <nav class="page-container main-nav" aria-label="Main navigation">
+          <!-- Logo -->
+          <a
+            href="../index.html"
+            class="text-lg font-bold text-violet-200 sm:text-2xl"
+          >
+            Social App
+          </a>
+
+          <!-- Navigation links -->
+          <div class="flex items-center gap-3 sm:gap-6">
+            <a href="../feed/" class="nav-link"> Feed </a>
+
+            <a href="./index.html" aria-current="page" class="nav-link">
+              Profile
+            </a>
+
+            <a href="../index.html" class="logout-button"> Log Out </a>
+          </div>
+        </nav>
+      </header>
+
+      <!-- Main content -->
+      <main class="page-container py-8 sm:py-12">
+        <!-- Page heading -->
+        <div class="mb-8">
+          <h1 class="page-title">User Profile</h1>
+
+          <p class="body-text">Get to know the people in your community.</p>
+        </div>
+
+        <!-- Profile card -->
+        <section
+          class="glass-card bg-slate-900/50"
+          aria-labelledby="profile-name"
+        >
+          <!-- Decorative cover -->
+          <div class="profile-cover"></div>
+
+          <!-- Profile content -->
+          <div class="px-5 pb-6 sm:px-8 sm:pb-8">
+            <!-- Profile image and Follow button -->
+            <div class="-mt-12 flex items-end justify-between gap-4 sm:-mt-14">
+              <img
+                src="https://i.pravatar.cc/200?img=47"
+                alt="Profile picture of Emma Wilson"
+                class="avatar-image h-24 w-24"
+              />
+
+              <button
+                type="button"
+                id="follow-button"
+                aria-pressed="false"
+                class="cta-button w-auto px-6 py-2"
+              >
+                Follow
+              </button>
+            </div>
+
+            <!-- User information -->
+            <div class="mt-5">
+              <h2 id="profile-name" class="section-title">Emma Wilson</h2>
+
+              <p class="mt-1 text-sm text-violet-200">@emmawilson</p>
+
+              <p class="body-text">
+                Sunset lover, weekend explorer and photography enthusiast. 🌅
+                Sharing little moments from everyday life.
+              </p>
+            </div>
+
+            <!-- Profile statistics -->
+            <div
+              class="mt-6 grid grid-cols-3 gap-3 border-t border-white/20 pt-6"
+            >
+              <div>
+                <p class="stat-number">12</p>
+                <p class="stat-label">Posts</p>
+              </div>
+
+              <div>
+                <p id="followers-count" class="stat-number">1,248</p>
+                <p class="stat-label">Followers</p>
+              </div>
+
+              <div>
+                <p class="stat-number">386</p>
+                <p class="stat-label">Following</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- User posts -->
+        <section class="mt-10" aria-labelledby="user-posts-heading">
+          <div class="mb-5">
+            <h2 id="user-posts-heading" class="section-title">Emma's Posts</h2>
+
+            <p class="post-text">Moments shared with the community.</p>
+          </div>
+
+          <div class="space-y-6">
+            <!-- Post 1 -->
+            <article class="glass-card bg-slate-900/60">
+              <!-- Author -->
+              <div class="post-author">
+                <img
+                  src="https://i.pravatar.cc/100?img=47"
+                  alt=""
+                  class="avatar-image"
+                />
+
+                <div>
+                  <h3 class="font-semibold">Emma Wilson</h3>
+
+                  <p class="post-metadata">@emmawilson · 2 hours ago</p>
+                </div>
+              </div>
+
+              <!-- Post text -->
+              <div class="px-5 pb-5">
+                <p class="post-text">
+                  Sometimes all you need is a beautiful sunset and a little time
+                  to yourself. 🌅
+                </p>
+              </div>
+
+              <!-- Post image -->
+              <img
+                src="https://images.unsplash.com/photo-1472120435266-53107fd0c44a?auto=format&fit=crop&w=1000&q=80"
+                alt="Orange sunset over a landscape"
+                class="post-image"
+              />
+
+              <!-- Post statistics -->
+              <div class="post-actions">
+                <span class="post-stat"> ♡ 128 Likes </span>
+
+                <span class="post-stat"> 💬 24 Comments </span>
+              </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="glass-card bg-slate-900/60">
+              <!-- Author -->
+              <div class="post-author">
+                <img
+                  src="https://i.pravatar.cc/100?img=47"
+                  alt=""
+                  class="avatar-image"
+                />
+
+                <div>
+                  <h3 class="font-semibold">Emma Wilson</h3>
+
+                  <p class="post-metadata">@emmawilson · 3 days ago</p>
+                </div>
+              </div>
+
+              <!-- Post text -->
+              <div class="px-5 pb-5">
+                <p class="body-text">
+                  Fresh air, quiet trails and a camera full of memories. 🌿📷
+                </p>
+              </div>
+
+              <!-- Post image -->
+              <img
+                src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1000&q=80"
+                alt="Sunlight shining through a forest"
+                class="post-image"
+                loading="lazy"
+              />
+
+              <!-- Post statistics -->
+              <div class="post-actions">
+                <span class="post-stat"> ♡ 94 Likes </span>
+
+                <span class="post-stat"> 💬 16 Comments </span>
+              </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="glass-card bg-slate-900/60">
+              <!-- Author -->
+              <div class="post-author">
+                <img
+                  src="https://i.pravatar.cc/100?img=47"
+                  alt=""
+                  class="avatar-image"
+                />
+
+                <div>
+                  <h3 class="font-semibold">Emma Wilson</h3>
+
+                  <p class="post-metadata">@emmawilson · 1 week ago</p>
+                </div>
+              </div>
+
+              <!-- Post text -->
+              <div class="px-5 pb-5">
+                <p class="body-text">
+                  Slow mornings and a good cup of coffee. Sometimes the simple
+                  things are best. ☕
+                </p>
+              </div>
+
+              <!-- Post image -->
+              <img
+                src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1000&q=80"
+                alt="Coffee on a table"
+                class="post-image"
+                loading="lazy"
+              />
+
+              <!-- Post statistics -->
+              <div class="post-actions">
+                <span class="post-stat"> ♡ 176 Likes </span>
+
+                <span class="post-stat"> 💬 29 Comments </span>
+              </div>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <!-- UI-only Follow button -->
+    <script>
+      const followButton = document.getElementById("follow-button");
+
+      const followersCount = document.getElementById("followers-count");
+
+      let isFollowing = false;
+
+      followButton.addEventListener("click", () => {
+        isFollowing = !isFollowing;
+
+        followButton.textContent = isFollowing ? "Following" : "Follow";
+
+        followButton.setAttribute("aria-pressed", String(isFollowing));
+
+        followersCount.textContent = isFollowing ? "1,249" : "1,248";
+
+        followButton.classList.toggle("bg-violet-600", !isFollowing);
+
+        followButton.classList.toggle("bg-slate-700", isFollowing);
+      });
+    </script>
+  </body>
+</html>
